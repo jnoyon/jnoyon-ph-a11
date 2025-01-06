@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
         <Banner></Banner>
-        <Map></Map>
+        {/* <Map></Map> */}
         <Teams></Teams>
     </div>
   )
