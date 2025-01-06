@@ -10,6 +10,8 @@ import ErrorPage from './pages/ErrorPage';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Rooms from './pages/Rooms';
+import MyBookings from './pages/MyBookings';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,15 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+
+      {
+        path: "/rooms",
+        element: <Rooms></Rooms>
+      },
+      {
+        path: "/my-bookings",
+        element: <MyBookings></MyBookings>
       },
       {
         path: "/login",

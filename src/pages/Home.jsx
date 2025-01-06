@@ -4,6 +4,7 @@ import Map from '../components/Map'
 import Teams from '../components/Teams'
 import { Helmet } from 'react-helmet'
 import PricingTable from '../components/PricingTable'
+import FeaturedRooms from '../components/FeaturedRooms'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
             <title> Stock Room </title>
         </Helmet>
         <Banner></Banner>
+        <FeaturedRooms></FeaturedRooms>
         {/* <Map></Map> */}
         <Teams></Teams>
         <PricingTable></PricingTable>

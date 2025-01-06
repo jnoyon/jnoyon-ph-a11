@@ -5,7 +5,7 @@ import { FaHotjar } from "react-icons/fa";
 export default function PricingTable() {
   return (
     <div className='py-10'>
-        <h1 className='text-center text-2xl font-bold md:text-5xl mb-5'> Our Pricing </h1>
+        <h1 className='text-center text-2xl font-bold md:text-5xl mb-5'> <span className='text-blue-500'> Our </span> Pricing </h1>
         <div className="flex flex-col md:flex-row gap-7  container mx-auto w-11/12">
 
             <div className="flex flex-col md:w-1/3 shadow-lg rounded-md">
