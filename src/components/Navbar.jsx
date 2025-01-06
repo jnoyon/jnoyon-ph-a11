@@ -1,18 +1,19 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 export default function Navbar() {
   return (
     <div className='border-b border-solid border-gray-300'>
         <div className="navbar bg-base-100 mx-auto container w-11/12">
   <div className="flex-1">
-    <a className="btn btn-ghost text-xl">Stock Room</a>
+    <Link to='/' className="btn btn-ghost text-xl"> Stock Room </Link>
   </div>
   <div className="flex-none gap-2">
     <div className="flex gap-5">
       <NavLink to='/'> Home </NavLink>
       <NavLink to='/'> Rooms </NavLink>
       <NavLink to='/'> My Bookings </NavLink>
+      <NavLink to='/login'> Login </NavLink>
     </div>
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
