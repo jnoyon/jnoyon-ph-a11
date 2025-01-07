@@ -5,3 +5,7 @@
 body {
     font-family: "Lato", serif;
 }
+.leaflet-container {
+    width: 100%;
+    height: 60vh;
+}

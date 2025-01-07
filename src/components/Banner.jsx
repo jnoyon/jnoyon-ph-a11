@@ -5,13 +5,15 @@ export default function Banner() {
     <div>
       <div className="carousel w-full">
         <div id="slide1" className="carousel-item relative w-full">
-          <div className="absolute w-full">
-            <div className="flex flex-col items-center justify-center min-h-screen">
-              <div className="md:w-1/3 backdrop-blur  text-center mx-auto p-5 rounded-lg shadow-lg">
-                <p className="mb-5 md:text-xl">
-                Experience unmatched comfort and world-class amenities in our elegantly designed rooms.
-                </p>
-                <Link to="/rooms" className="bg-blue-600 text-white font-bold py-2 px-5 rounded-md hover:bg-red-500"> Rooms </Link>
+          <div className="absolute inset-0 w-full bg-black bg-opacity-70 ">
+            <div className="flex flex-col items-center ">
+              <div className="md:w-1/2 w-10/12 text-center absolute md:top-1/3 top-1/4">
+                <div className="mb-5 text-white flex flex-col md:gap-2">
+                  <p className="md:text-2xl"> Experience unmatched </p>
+                  <h1 className="md:text-4xl font-bold text-blue-400">  Comfort and world-class amenities  </h1>
+                  <p className="md:text-2xl"> In our elegantly designed rooms. </p>
+                </div>
+                <Link to="/rooms" className="bg-blue-600 text-white text-sm md:text-xl font-bold py-2 md:py-3 md:px-10 px-5 rounded-md hover:bg-red-500"> Rooms </Link>
               </div>
             </div>
           </div>
@@ -29,6 +31,18 @@ export default function Banner() {
           </div>
         </div>
         <div id="slide2" className="carousel-item relative w-full">
+        <div className="absolute inset-0 w-full bg-black bg-opacity-70 ">
+            <div className="flex flex-col items-center ">
+              <div className="md:w-1/2 w-10/12 text-center absolute md:top-1/3 top-1/4">
+                <div className="mb-5 text-white flex flex-col md:gap-2">
+                  <p className="md:text-2xl"> Experience unmatched </p>
+                  <h1 className="md:text-4xl font-bold text-red-400">  Comfort and world-class amenities  </h1>
+                  <p className="md:text-2xl"> In our elegantly designed rooms. </p>
+                </div>
+                <Link to="/rooms" className="bg-red-600 text-white text-sm md:text-xl font-bold py-2 md:py-3 md:px-10 px-5 rounded-md hover:bg-blue-500"> Rooms </Link>
+              </div>
+            </div>
+          </div>
           <img
             src="https://tp.jihadur.com/wp-content/uploads/2025/01/slider1.jpg"
             className="w-full"

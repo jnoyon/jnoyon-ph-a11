@@ -13,8 +13,9 @@ export default function Home() {
             <title> Stock Room </title>
         </Helmet>
         <Banner></Banner>
+        <Map></Map>
         <FeaturedRooms></FeaturedRooms>
-        {/* <Map></Map> */}
+        
         <Teams></Teams>
         <PricingTable></PricingTable>
     </div>
