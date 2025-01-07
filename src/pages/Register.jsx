@@ -1,17 +1,50 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import AuthContext from "../assets/context/AuthContext";
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Register() {
-  const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
-  if (regex.test(password)) {
-    console.log("Valid password");
-  } else {
-    console.log("Invalid password");
+  const {createUser} = useContext(AuthContext);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const errorNotification = (notification) => toast.error(notification);
+
+  
+
+  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photoURL = e.target.photourl.value;
+    const password = e.target.password.value;
+  
+    // Log the values or use them as needed
+    console.log({ name, email, photoURL, password });
+    const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!regex.test(password)) {
+      setErrorMsg('Must have an Uppercase letter, a lowercase letter, Length must be at least 6 character');
+      errorNotification('Must have an Uppercase letter, a lowercase letter, Length must be at least 6 character');
+      return;
+    } 
+    setErrorMsg('')
+    createUser(email, password)
+    .then(result=> {
+      console.log('first', result)
+    })
+    .catch(error => {
+      console.log(error)
+      setErrorMsg(error.message);
+      errorNotification(error.message);
+    })
   }
 
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">
+      <Toaster />
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Registration now!</h1>
@@ -25,7 +58,7 @@ export default function Register() {
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
+            <form onSubmit={handleSubmit} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -78,6 +111,7 @@ export default function Register() {
                 <button className="btn btn-primary">Sign Up</button>
               </div>
             </form>
+            <p className="text-red-500 text-sm pb-5 px-5"> {errorMsg} </p>
           </div>
         </div>
       </div>
