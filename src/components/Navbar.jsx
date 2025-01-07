@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Menu from "./Menu";
+import AuthContext from "../assets/context/AuthContext";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 export default function Navbar() {
+  const signOut = () => toast.success('You have successfully Signed Out!');
+  const {user, signOutUser} = useContext(AuthContext);
+  const handleSignOut = () => {
+    signOutUser()
+    .then(result=> {
+      signOut();
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
   return (
     <div className="border-b border-solid border-gray-300">
+      <Toaster />
       <div className="navbar container mx-auto w-11/12">
         <div className="navbar-start">
           <div className="dropdown">
@@ -39,7 +54,9 @@ export default function Navbar() {
           </div>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {
+              user? <div className="flex items-center gap-3"> <div className="flex items-center gap-1"> <img src={user.photoURL} alt="Photo" className="w-10 h-10 rounded-md" /> <div> <p className="font-bold text-sm"> {user.displayName} </p> <p className="text-xs"> {user.email} </p> </div> </div>  <button className="button bg-red-500" onClick={handleSignOut}> Logout </button> </div> : <div> <NavLink className='button bg-green-500' to="/login"> Login </NavLink> </div>
+          }
         </div>
       </div>
     </div>

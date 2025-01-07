@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 export default function Register() {
 
-  const {createUser} = useContext(AuthContext);
+  const {createUser, updateUser} = useContext(AuthContext);
   const [errorMsg, setErrorMsg] = useState('');
 
   const errorNotification = (notification) => toast.error(notification);
@@ -18,11 +18,11 @@ export default function Register() {
 
     const name = e.target.name.value;
     const email = e.target.email.value;
-    const photoURL = e.target.photourl.value;
+    const photourl = e.target.photourl.value;
     const password = e.target.password.value;
   
     // Log the values or use them as needed
-    console.log({ name, email, photoURL, password });
+    console.log({ name, email, photourl, password });
     const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!regex.test(password)) {
       setErrorMsg('Must have an Uppercase letter, a lowercase letter, Length must be at least 6 character');
@@ -32,7 +32,8 @@ export default function Register() {
     setErrorMsg('')
     createUser(email, password)
     .then(result=> {
-      console.log('first', result)
+      console.log('error', result)
+      updateUser({displayName: name, photoURL: photourl})
     })
     .catch(error => {
       console.log(error)

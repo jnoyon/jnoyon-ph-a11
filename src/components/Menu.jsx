@@ -7,7 +7,7 @@ export default function Menu() {
     <NavLink to="/"> Home </NavLink>
             <NavLink to="/rooms"> Rooms </NavLink>
             <NavLink to="/my-bookings"> My Bookings </NavLink>
-            <NavLink to="/login"> Login </NavLink>
+            
     </>
   )
 }

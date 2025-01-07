@@ -9,3 +9,9 @@ body {
     width: 100%;
     height: 60vh;
 }
+.button {
+    border-radius: 5px;
+    color: #FFF;
+    font-weight: bold;
+    padding: 3px 7px;
+}
