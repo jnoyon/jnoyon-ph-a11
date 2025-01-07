@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className="navbar container mx-auto w-11/12">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div tabIndex={0} role="button" className="button bg-blue-500 lg:hidden mr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -55,7 +55,7 @@ export default function Navbar() {
         </div>
         <div className="navbar-end">
           {
-              user? <div className="flex items-center gap-3"> <div className="flex items-center gap-1"> <img src={user.photoURL} alt="Photo" className="w-10 h-10 rounded-md" /> <div> <p className="font-bold text-sm"> {user.displayName} </p> <p className="text-xs"> {user.email} </p> </div> </div>  <button className="button bg-red-500" onClick={handleSignOut}> Logout </button> </div> : <div> <NavLink className='button bg-green-500' to="/login"> Login </NavLink> </div>
+              user? <div className="flex items-center gap-3"> <div className="flex items-center gap-1"> <img src={user.photoURL} alt="Photo" className="w-10 h-10 rounded-md" /> <div className="hidden md:block"> <p className="font-bold text-sm"> {user.displayName} </p> <p className="text-xs"> {user.email} </p> </div> </div>  <button className="button bg-red-500" onClick={handleSignOut}> Logout </button> </div> : <div> <NavLink className='button bg-green-500' to="/login"> Login </NavLink> </div>
           }
         </div>
       </div>

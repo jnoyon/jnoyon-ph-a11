@@ -55,7 +55,7 @@ export default function Register() {
               and offers, making it easier than ever to find and book your dream
               stays. With a registered account, you can manage your bookings
               seamlessly, save your favorite rooms for future stays, and enjoy a
-              personalized experience tailored just for you.{" "}
+              personalized experience tailored just for you.
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

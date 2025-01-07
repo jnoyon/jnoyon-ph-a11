@@ -50,9 +50,12 @@ export default function Login() {
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+            elcome to Hotel Booking! We're excited to have you join our
+              community. By creating an account, you’ll unlock exclusive deals
+              and offers, making it easier than ever to find and book your dream
+              stays. With a registered account, you can manage your bookings
+              seamlessly, save your favorite rooms for future stays, and enjoy a
+              personalized experience tailored just for you.
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
