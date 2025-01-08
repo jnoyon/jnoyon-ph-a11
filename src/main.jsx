@@ -14,6 +14,7 @@ import Rooms from './pages/Rooms';
 import MyBookings from './pages/MyBookings';
 import AuthProvider from './assets/context/AuthProvider';
 import RoomDetails from './pages/RoomDetails';
+import PrivateRoute from '../PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-bookings",
-        element: <MyBookings></MyBookings>
+        element: <PrivateRoute> <MyBookings></MyBookings> </PrivateRoute>
       },
       {
         path: "/login",

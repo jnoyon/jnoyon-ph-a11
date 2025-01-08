@@ -8,6 +8,7 @@ export default function Register() {
   const [errorMsg, setErrorMsg] = useState('');
 
   const errorNotification = (notification) => toast.error(notification);
+  const successful = () => toast.success('Registration Successful!');
 
   
 
@@ -33,6 +34,7 @@ export default function Register() {
     createUser(email, password)
     .then(result=> {
       console.log('error', result)
+      successful()
       updateUser({displayName: name, photoURL: photourl})
     })
     .catch(error => {
