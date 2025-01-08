@@ -14,4 +14,18 @@ body {
     color: #FFF;
     font-weight: bold;
     padding: 3px 7px;
+    transition: .5s;
+}
+.button:hover {
+    background-color: red;
+}
+.button-lg {
+    border-radius: 5px;
+    color: #FFF;
+    font-weight: bold;
+    transition: .5s;
+    padding: 10px 20px;
+}
+.button-lg:hover {
+    background-color: red;
 }

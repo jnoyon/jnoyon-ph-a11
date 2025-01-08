@@ -16,6 +16,7 @@
     "lottie-react": "^2.4.0",
     "match-sorter": "^8.0.0",
     "react": "^19.0.0-rc.1",
+    "react-datepicker": "^7.6.0",
     "react-dom": "^19.0.0-rc.1",
     "react-helmet": "^6.1.0",
     "react-hot-toast": "^2.5.1",

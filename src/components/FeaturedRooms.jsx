@@ -6,7 +6,7 @@ export default function FeaturedRooms() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/rooms")
+    fetch("https://jnoyon-ph-a11-server.vercel.app/rooms")
       .then((res) => res.json())
       .then((data) => {
         setRooms(data);

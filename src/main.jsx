@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/rooms/:id",
         element: <RoomDetails></RoomDetails>,
-        loader: ({params}) => fetch(`http://localhost:3000/rooms/${params.id}`)
+        loader: ({params}) => fetch(`https://jnoyon-ph-a11-server.vercel.app/rooms/${params.id}`)
       },
       {
         path: "/my-bookings",

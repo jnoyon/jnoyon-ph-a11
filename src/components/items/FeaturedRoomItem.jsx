@@ -13,7 +13,7 @@ export default function FeaturedRoomItem({room}) {
         <p className='text-sm text-gray-500'>  ${price}/Week  </p>
       </div>
       <p  className='text-sm text-gray-700 mb-2'> {description} </p>
-        <Link to={`/rooms/${_id}`}  className='button bg-blue-600'> Book Now </Link>
+        <Link to={`/rooms/${_id}`}  className='button-lg bg-blue-600'> Book Now </Link>
     </div>
   )
 }
