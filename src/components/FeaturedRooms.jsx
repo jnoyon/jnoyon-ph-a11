@@ -29,7 +29,7 @@ export default function FeaturedRooms() {
             <span className="loading loading-spinner loading-lg"></span>
           </div>
         ) : rooms && rooms.length>0? (
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-3 gap-5">
             {rooms.map((room, index) => (
               <FeaturedRoomItem key={index} room={room}></FeaturedRoomItem>
             ))}

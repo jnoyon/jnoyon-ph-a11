@@ -13,6 +13,7 @@ import Register from './pages/Register';
 import Rooms from './pages/Rooms';
 import MyBookings from './pages/MyBookings';
 import AuthProvider from './assets/context/AuthProvider';
+import RoomDetails from './pages/RoomDetails';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
       {
         path: "/rooms",
         element: <Rooms></Rooms>
+      },
+      {
+        path: "/rooms/:id",
+        element: <RoomDetails></RoomDetails>,
+        loader: ({params}) => fetch(`http://localhost:3000/rooms/${params.id}`)
       },
       {
         path: "/my-bookings",

@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 export default function RoomItem({room}) {
-    const {photo, room_name, description, price} = room;
+    const {_id, photo, room_name, description, price} = room;
     return (
-        <Link>
+        <Link to={`/rooms/${_id}`}>
           <div className='flex gap-2 rounded-md p-2 border'>
           <img src={photo} alt="Room" className='w-52 rounded-md' />
           <div className="info">
