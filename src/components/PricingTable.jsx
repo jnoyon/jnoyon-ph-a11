@@ -24,7 +24,7 @@ export default function PricingTable() {
                     <li className='border-b border-solid border-gray-300 py-1.5 flex gap-2 items-center'> <FaArrowAltCircleRight className='text-green-500' />  <b>Customer Support: </b> Email support only. </li>
                     <li className='py-1 flex gap-2 items-center'> <FaArrowAltCircleRight className='text-green-500' />  <b> Loyalty Points: </b> 5 points per booking. </li>
                 </ul>
-                <Link to='' className='bg-green-500 font-bold text-white text-center py-2'> View More </Link>
+                <Link to='/rooms' className='bg-green-500 font-bold text-white text-center py-2'> View More </Link>
             </div>
             <div className="flex flex-col md:w-1/3 shadow-lg rounded-md">
                 <div className="header bg-orange-500 text-white p-2 relative">
@@ -43,7 +43,7 @@ export default function PricingTable() {
                     <li className='border-b border-solid border-gray-300 py-1.5 flex gap-2 items-center'> <FaArrowAltCircleRight className='text-orange-500' />  <b>Customer Support: </b> Email support only. </li>
                     <li className='py-1 flex gap-2 items-center'> <FaArrowAltCircleRight className='text-orange-500' />  <b> Loyalty Points: </b> 10 points per booking. </li>
                 </ul>
-                <Link to='' className='bg-orange-500 font-bold text-white text-center py-2'> View More </Link>
+                <Link to='/rooms' className='bg-orange-500 font-bold text-white text-center py-2'> View More </Link>
             </div>
             <div className="flex flex-col md:w-1/3 shadow-lg rounded-md">
                 <div className="header bg-blue-500 text-white p-2 relative">
@@ -61,7 +61,7 @@ export default function PricingTable() {
                     <li className='border-b border-solid border-gray-300 py-1.5 flex gap-2 items-center'> <FaArrowAltCircleRight className='text-blue-500' />  <b>Customer Support: </b> Dedicated concierge. </li>
                     <li className='py-1 flex gap-2 items-center'> <FaArrowAltCircleRight className='text-blue-500' />  <b> Loyalty Points: </b> 20 points per booking </li>
                 </ul>
-                <Link to='' className='bg-blue-500 font-bold text-white text-center py-2'> View More </Link>
+                <Link to='/rooms' className='bg-blue-500 font-bold text-white text-center py-2'> View More </Link>
             </div>
             
         </div>

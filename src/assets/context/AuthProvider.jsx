@@ -59,7 +59,8 @@ export default function AuthProvider({children}) {
         userSignIn,
         userSignInWithGoogle,
         signOutUser,
-        updateUser
+        updateUser,
+        setUser
     }
 
   return (

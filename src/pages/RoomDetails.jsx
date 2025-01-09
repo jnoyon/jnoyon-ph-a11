@@ -6,18 +6,21 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from 'react-helmet';
 import toast, { Toaster } from 'react-hot-toast';
+import ReactStarsRating from 'react-awesome-stars-rating';
 
 export default function RoomDetails() {
     const room = useLoaderData();
     const {user} = useContext(AuthContext);
-    const {_id, photo, room_name, description, price, availability} = room;
+    const {_id, photo, room_name, description, price, availability, rating} = room;
     const [startDate, setStartDate] = useState(new Date());
     const successful = () => toast.success('Room Booking Successful!');
     const unsuccessful = (msg) => toast.error(msg);
     const handleBookNow = () => {
         document.getElementById('book_now').showModal();
     }
-
+    const ReactStarsExample = () => {
+        return <ReactStarsRating value={rating} />;
+      };
     const handleClose = () => {
         document.getElementById('book_now').close();
     }
@@ -28,23 +31,36 @@ export default function RoomDetails() {
         const date = startDate.toISOString().split('T')[0];
    
        const bookedRoom =  {_id, room_name, photo, price, name, email, date}
-       fetch('https://jnoyon-ph-a11-server.vercel.app/room-bookings', {
-        method: 'POST',
+       fetch("https://jnoyon-ph-a11-server.vercel.app/room-bookings", {
+        method: "POST",
         headers: {
-            'content-type' : 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(bookedRoom)
-       })
-       .then(res => res.json())
-       .then(data => {
-            console.log(data)
-            successful();
-            document.getElementById('book_now').close();
-       })
-       .catch(error=> {
-        unsuccessful(error.message);
-        document.getElementById('book_now').close();
-       })
+        body: JSON.stringify(bookedRoom),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+            return fetch(`https://jnoyon-ph-a11-server.vercel.app/rooms/${_id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ availability: false }),
+          });
+        })
+        .then((res) => res.json())
+        .then((updateResult) => {
+          console.log("Room availability updated:", updateResult);
+          successful(); 
+          document.getElementById("book_now").close();
+        })
+        .catch((error) => {
+          console.error("Error during booking or updating room:", error);
+          unsuccessful(error.message); 
+          document.getElementById("book_now").close();
+        });
+
+
     }
   return (
     <div className='container w-11/12 mx-auto py-10'>
@@ -55,7 +71,10 @@ export default function RoomDetails() {
         <div className="flex flex-col md:flex-row gap-5 bg-gradient-to-r from-indigo-100 via-yellow-50 to-pink-100 p-5 rounded-md">
             <img src={photo} alt="Room" className='md:w-1/2 rounded-md' />
             <div className="info md:w-1/2">
-                <h1 className=" text-2xl font-bold md:text-5xl mb-5"> {room_name}  </h1>
+                <h1 className=" text-2xl font-bold md:text-5xl mb-2"> {room_name}  </h1>
+                <div className="rating flex gap-2 items-center mb-5">
+                    <p className='bg-yellow-400 px-2 py-0.5 text-sm rounded-md'> {rating} </p> <ReactStarsExample />
+                </div>
                 <p className='text-xl'> {description} </p>
                 <div className="bg-white w-60 mx-auto text-center my-5 rounded-md p-3 shadow-md flex flex-col gap-2">
                     <h1> Price </h1>

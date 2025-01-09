@@ -2,12 +2,13 @@ import React, { useContext, useState } from "react";
 import AuthContext from "../assets/context/AuthContext";
 import toast, { Toaster } from 'react-hot-toast';
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
 
-  const {createUser, updateUser} = useContext(AuthContext);
+  const {createUser,setUser, updateUser} = useContext(AuthContext);
   const [errorMsg, setErrorMsg] = useState('');
-
+  const navigate = useNavigate();
   const errorNotification = (notification) => toast.error(notification);
   const successful = () => toast.success('Registration Successful!');
 
@@ -33,15 +34,18 @@ export default function Register() {
     } 
     setErrorMsg('')
     createUser(email, password)
-    .then(result=> {
-      console.log('error', result)
-      successful()
-      updateUser({displayName: name, photoURL: photourl})
-    })
-    .catch(error => {
-      console.log(error)
-      setErrorMsg(error.message);
-      errorNotification(error.message);
+    .then(result => {
+      console.log(result.user)
+      updateUser({ displayName: name, photoURL: photourl })
+      .then(()=>{
+        setUser({...result.user, displayName: name, photoURL: photourl})
+        successful()
+        navigate('/');
+      })
+      .catch(error=> {
+        console.log(error)
+        errorNotification("Registration Failed")
+      })
     })
   }
 

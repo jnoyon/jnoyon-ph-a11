@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 export default function MyBookings() {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
-
   
 
   useEffect(() => {
@@ -47,7 +46,7 @@ export default function MyBookings() {
                 </thead>
                 <tbody>
                   {rooms.map((room, index) => (
-                    <BookingItem key={index} room={room}></BookingItem>
+                    <BookingItem key={index} setRooms={setRooms} room={room}></BookingItem>
                   ))}
                 </tbody>
               </table>

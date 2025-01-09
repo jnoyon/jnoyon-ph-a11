@@ -2,6 +2,8 @@
 
 StockRoom is a modern React-based application designed to provide an efficient and visually appealing user experience for inventory management and stock tracking. Leveraging the power of Tailwind CSS for utility-first styling and DaisyUI for pre-designed, customizable components, StockRoom combines functionality with an elegant, responsive design.
 
+## Live Link: http://jnoyon-ph-a11.surge.sh/
+
 ## NPM Packages:
 - React Helmet
 - Lottie React
@@ -10,6 +12,5 @@ StockRoom is a modern React-based application designed to provide an efficient a
 - React Hot Toast
 - React Date Picker
 - React Awesome Stars Rating
+- React sweetalert2
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
