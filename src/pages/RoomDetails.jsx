@@ -7,14 +7,33 @@ import "react-datepicker/dist/react-datepicker.css";
 export default function RoomDetails() {
     const room = useLoaderData();
     const {user} = useContext(AuthContext);
-    const {photo, room_name, description, price} = room;
+    const {_id, photo, room_name, description, price, availability} = room;
     const [startDate, setStartDate] = useState(new Date());
     const handleBookNow = () => {
-        
-        document.getElementById('book_now').showModal()
+        document.getElementById('book_now').showModal();
     }
-    const handleConfirm = () => {
 
+    const handleClose = () => {
+        document.getElementById('book_now').close();
+    }
+    const handleConfirm = (event) => {
+        event.preventDefault();
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const date = startDate.toISOString().split('T')[0];
+   
+       const bookedRoom =  {_id, room_name, photo, price, name, email, date}
+       fetch('https://jnoyon-ph-a11-server.vercel.app/room-bookings', {
+        method: 'POST',
+        headers: {
+            'content-type' : 'application/json'
+        },
+        body: JSON.stringify(bookedRoom)
+       })
+       .then(res => res.json())
+       .then(data => {
+            console.log(data)
+       })
     }
   return (
     <div className='container w-11/12 mx-auto py-10'>
@@ -30,7 +49,7 @@ export default function RoomDetails() {
                     <p> Weekly </p>
                 </div>
                 <div className='text-center'>
-                    <button className='button-lg bg-blue-500' onClick={handleBookNow}> Book Now </button>
+                    {availability? <button className='button-lg bg-blue-500' onClick={handleBookNow}> Book Now </button> : <button disabled className='button-lg bg-red-500'> Unavailable </button>}
                 </div>
             </div>
         </div>
@@ -44,17 +63,18 @@ export default function RoomDetails() {
             <div className="modal-action flex-col gap-2">
             <form onSubmit={handleConfirm} method="dialog" className='gap-2 flex flex-col'>
                 <label className="input input-bordered flex items-center gap-2">  Name
-                    <input type="text" name='name' className="grow" placeholder="Your Full Name" />
+                    <input type="text" name='name' className="grow" placeholder="Your Full Name" defaultValue={user?.displayName || ''} />
                 </label>
                 <label className="input input-bordered flex items-center gap-2"> Email
                 <input type="email" name="email" className="grow" defaultValue={user?.email || ''} placeholder="Your Email" />
                 </label>
                 <label className="input input-bordered flex items-center gap-2"> Date
-                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                <DatePicker name='date' selected={startDate} onChange={(date) => setStartDate(date)} />
                 </label>
-                <button className='btn btn-success'> Confirm Book </button>
-                <button className="btn btn-error">Close</button>
+                <input type='submit' value='Confirm Book' className='btn btn-success' /> 
+                
             </form>
+            <button className="btn btn-error" onClick={handleClose}>Close</button>
             </div>
         </div>
         </dialog>
