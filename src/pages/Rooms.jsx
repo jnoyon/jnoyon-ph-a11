@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RoomItem from "../components/items/RoomItem";
+import { Helmet } from "react-helmet";
 export default function Rooms() {
   const [rooms, setRooms] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -20,6 +21,9 @@ export default function Rooms() {
 
   return (
     <div className="py-10">
+      <Helmet>
+            <title> Rooms - Stock Room </title>
+        </Helmet>
           <h1 className="text-center text-2xl font-bold md:text-5xl mb-5">
             <span className="text-blue-500"> All </span> Rooms
           </h1>

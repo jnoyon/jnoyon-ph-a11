@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import AuthContext from "../assets/context/AuthContext";
 import toast, { Toaster } from 'react-hot-toast';
+import { Helmet } from "react-helmet";
 
 export default function Register() {
 
@@ -47,6 +48,9 @@ export default function Register() {
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">
+      <Helmet>
+            <title> Registration - Stock Room </title>
+        </Helmet>
       <Toaster />
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">

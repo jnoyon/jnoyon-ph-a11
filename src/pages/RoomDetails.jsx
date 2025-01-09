@@ -4,11 +4,16 @@ import AuthContext from '../assets/context/AuthContext';
 import  { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Helmet } from 'react-helmet';
+import toast, { Toaster } from 'react-hot-toast';
+
 export default function RoomDetails() {
     const room = useLoaderData();
     const {user} = useContext(AuthContext);
     const {_id, photo, room_name, description, price, availability} = room;
     const [startDate, setStartDate] = useState(new Date());
+    const successful = () => toast.success('Room Booking Successful!');
+    const unsuccessful = (msg) => toast.error(msg);
     const handleBookNow = () => {
         document.getElementById('book_now').showModal();
     }
@@ -33,11 +38,20 @@ export default function RoomDetails() {
        .then(res => res.json())
        .then(data => {
             console.log(data)
+            successful();
+            document.getElementById('book_now').close();
+       })
+       .catch(error=> {
+        unsuccessful(error.message);
+        document.getElementById('book_now').close();
        })
     }
   return (
     <div className='container w-11/12 mx-auto py-10'>
-        
+        <Helmet>
+            <title> {room_name} - Stock Room </title>
+        </Helmet>
+        <Toaster />
         <div className="flex flex-col md:flex-row gap-5 bg-gradient-to-r from-indigo-100 via-yellow-50 to-pink-100 p-5 rounded-md">
             <img src={photo} alt="Room" className='md:w-1/2 rounded-md' />
             <div className="info md:w-1/2">

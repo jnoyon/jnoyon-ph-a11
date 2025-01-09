@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import FeaturedRoomItem from "./items/FeaturedRoomItem";
 
 export default function FeaturedRooms() {
+  
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -9,7 +10,9 @@ export default function FeaturedRooms() {
     fetch("https://jnoyon-ph-a11-server.vercel.app/rooms")
       .then((res) => res.json())
       .then((data) => {
-        setRooms(data);
+        const sortedRooms = data.sort((a, b) => b.rating - a.rating);
+        const limitedRooms = sortedRooms.slice(0, 6);
+        setRooms(limitedRooms);
         setLoading(false);
       })
 

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import BookingItem from "../components/items/BookingItem";
+import { Helmet } from "react-helmet";
 export default function MyBookings() {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,6 +22,9 @@ export default function MyBookings() {
 
   return (
     <div className="py-10">
+      <Helmet>
+            <title> My Booking - Stock Room </title>
+        </Helmet>
       <h1 className="text-center text-2xl font-bold md:text-5xl mb-5">
         <span className="text-blue-500"> My </span> Bookings
       </h1>
