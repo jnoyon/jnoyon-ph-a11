@@ -29,3 +29,7 @@ body {
 .button-lg:hover {
     background-color: red;
 }
+.rating span {
+    display: flex;
+    gap: 5px;
+}

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import BookingItem from "../components/items/BookingItem";
 export default function MyBookings() {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  
 
   useEffect(() => {
     fetch("https://jnoyon-ph-a11-server.vercel.app/room-bookings")
@@ -20,7 +22,7 @@ export default function MyBookings() {
   return (
     <div className="py-10">
       <h1 className="text-center text-2xl font-bold md:text-5xl mb-5">
-        <span className="text-blue-500"> All </span> Rooms
+        <span className="text-blue-500"> My </span> Bookings
       </h1>
       <div className="container w-11/12 mx-auto">
         {loading ? (

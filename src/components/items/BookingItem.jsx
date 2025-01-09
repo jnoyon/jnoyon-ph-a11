@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import AuthContext from "../../assets/context/AuthContext";
 
 export default function BookingItem({ room }) {
+    const {user} = useContext(AuthContext);
+      
   const { _id, name, photo, room_name, email, price, date } = room;
+  if(email !== user.email){
+    return null;
+  }
   return (
     <tr>
       <td>
@@ -24,7 +30,7 @@ export default function BookingItem({ room }) {
         {email}
         </span>
       </td>
-      <td>{date}</td>
+      <td><p>{date}</p> <button className="btn btn-xs">Update Date</button></td>
       <th>
         <button className="button bg-red-400">Cancel</button>
       </th>

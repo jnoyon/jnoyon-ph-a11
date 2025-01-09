@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ReactStarsRating from 'react-awesome-stars-rating';
 
 export default function FeaturedRoomItem({room}) {
-  const {_id, photo, room_name, description, price, rating} = room;
+  const {_id, photo, room_name, description, price, rating, availability} = room;
   const [roomRating, setRoomRating] = useState(rating)
 
   const onChange = (value) => {
@@ -20,12 +20,13 @@ export default function FeaturedRoomItem({room}) {
         <h1 className='font-bold text-blue-600'> {room_name} </h1>
         <p className='text-sm text-gray-500'>  ${price}/Week  </p>
       </div>
-      <p> {roomRating} </p>
-      <div className="flex flex-row">
-          <ReactStarsExample />
+      
+      <div className="rating flex gap-2 items-center">
+        <p className='bg-yellow-400 px-2 py-0.5 text-sm rounded-md'> {roomRating} </p> <ReactStarsExample />
       </div>
       <p  className='text-sm text-gray-700 mb-2'> {description} </p>
         <Link to={`/rooms/${_id}`}  className='button-lg bg-blue-600'> Book Now </Link>
+        <p className='text-xs'> {availability? <span> Available </span>: <span> Not Available</span>} </p>
     </div>
   )
 }
