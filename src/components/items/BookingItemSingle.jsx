@@ -53,11 +53,11 @@ export default function BookingItemSingle() {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    const newDate = e.target.datechange.value;  
+    const newDate = e.target.datechange.value;
     if (newDate !== bookdate) {
-      const formattedDate = new Date(newDate).toISOString().split('T')[0]; 
+      const formattedDate = new Date(newDate).toISOString().split("T")[0];
       fetch(`http://jnoyon-ph-a11-server.vercel.app/room-bookings/${_id}`, {
-        method: "PATCH",  
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
@@ -69,8 +69,8 @@ export default function BookingItemSingle() {
             swal("Booking Date Updated!", {
               icon: "success",
             });
-            setBookdate(formattedDate); 
-            document.getElementById("dateModal").close(); 
+            setBookdate(formattedDate);
+            document.getElementById("dateModal").close();
           } else {
             swal("Failed to Update Date!", {
               icon: "error",
@@ -89,14 +89,10 @@ export default function BookingItemSingle() {
       });
     }
   };
-  
 
-  
   const ReactStarsExample = () => {
     return <ReactStarsRating value={rating} />;
   };
-
-  
 
   if (!user || email !== user.email) {
     return null;
@@ -107,27 +103,34 @@ export default function BookingItemSingle() {
         <title> {room_name} </title>
       </Helmet>
 
-<dialog id="dateModal" className="modal">
-  <div className="modal-box">
-    <h3 className="font-bold text-lg">Current Date: {date}</h3>
-    <p className="py-4"> Pick a date for Change Booking on YYYY-MM-DD:- </p>
-    <div className="modal-action">
-      <form onSubmit={handleUpdate} method="dialog">
-      <input type="date" placeholder="Type here" name="datechange" className="input input-bordered w-full" />
-      <input type="submit" value="Update Date" className="btn btn-sm btn-success" />
-        <button className="btn btn-sm btn-error">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+      <dialog id="dateModal" className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Current Date: {date}</h3>
+          <div className="modal-action">
+            <form onSubmit={handleUpdate} method="dialog">
+              <input
+                type="date"
+                placeholder="Type here"
+                name="datechange"
+                className="input input-bordered w-full mb-2"
+              />
+              <input
+                type="submit"
+                value="Update Date"
+                className="btn btn-sm btn-success"
+              />
+              <button className="btn ml-2 btn-sm btn-error">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
 
-      <div className="flex gap-5 rounded-md p-2 border py-5 my-5">
+      <div className="flex flex-col md:flex-row gap-5 rounded-md p-2 border py-5 my-5">
         <img src={photo} alt="Room" className="md:w-96 w-full rounded-md" />
         <div className="flex flex-col justify-between">
           <div className="flex flex-col gap-2">
             <h1 className="font-bold text-4xl text-gray-600"> {room_name} </h1>
             <p className="text-sm text-gray-500">
-              
               <b>Price:</b> {price}/- Hour
             </p>
             <div className="rating flex gap-2 items-center">
@@ -135,17 +138,21 @@ export default function BookingItemSingle() {
                 {rating}
               </p>
               <ReactStarsExample />
-
             </div>
-            <p> <b>Name:</b> {name} </p>
-            <p> <b>Date:</b> {bookdate} </p>
+            <p>
+              {" "}
+              <b>Name:</b> {name}{" "}
+            </p>
+            <p>
+              {" "}
+              <b>Date:</b> {bookdate}{" "}
+            </p>
           </div>
           <div className="flex gap-3">
             <button
               className="button bg-green-500"
-              onClick={()=>document.getElementById('dateModal').showModal()}
+              onClick={() => document.getElementById("dateModal").showModal()}
             >
-              
               Update Date
             </button>
             <button

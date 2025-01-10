@@ -30,7 +30,7 @@ export default function BookingItem({ room, setRooms }) {
         {name}
         <br />
         <span className="badge badge-ghost badge-sm">
-        {email}
+        {date}
         </span>
       </td>
 

@@ -39,8 +39,8 @@ export default function MyBookings() {
                 <thead>
                   <tr>
                     <th>Room</th>
-                    <th>Customer</th>
-                    <th>Date</th>
+                    <th>Booking Info</th>
+                    <th>Action</th>
                     <th></th>
                   </tr>
                 </thead>

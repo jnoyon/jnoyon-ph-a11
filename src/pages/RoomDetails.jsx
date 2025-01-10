@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, useNavigate } from 'react-router-dom'
 import AuthContext from '../assets/context/AuthContext';
 import  { useState } from "react";
 import DatePicker from "react-datepicker";
@@ -15,8 +15,13 @@ export default function RoomDetails() {
     const [startDate, setStartDate] = useState(new Date());
     const successful = () => toast.success('Room Booking Successful!');
     const unsuccessful = (msg) => toast.error(msg);
+    const navigate = useNavigate('/');
     const handleBookNow = () => {
+      if (!user) {
+        navigate("/login");
+    } else {
         document.getElementById('book_now').showModal();
+    }
     }
     const ReactStarsExample = () => {
         return <ReactStarsRating value={rating} />;
@@ -24,6 +29,8 @@ export default function RoomDetails() {
     const handleClose = () => {
         document.getElementById('book_now').close();
     }
+
+
     const handleConfirm = (event) => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -85,9 +92,7 @@ export default function RoomDetails() {
                     {availability? <button className='button-lg bg-blue-500' onClick={handleBookNow}> Book Now </button> : <button disabled className='button-lg bg-red-500'> Unavailable </button>}
                 </div>
             </div>
-        </div>
-                {/* Open the modal using document.getElementById('ID').showModal() method */}
-        
+        </div>        
         <dialog id="book_now" className="modal">
         <div className="modal-box">
             <h3 className="font-bold text-lg"> {room_name}</h3>
