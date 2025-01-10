@@ -15,6 +15,7 @@ import MyBookings from './pages/MyBookings';
 import AuthProvider from './assets/context/AuthProvider';
 import RoomDetails from './pages/RoomDetails';
 import PrivateRoute from '../PrivateRoute';
+import BookingItemSingle from './components/items/BookingItemSingle';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
         path: "/rooms/:id",
         element: <RoomDetails></RoomDetails>,
         loader: ({params}) => fetch(`https://jnoyon-ph-a11-server.vercel.app/rooms/${params.id}`)
+      },
+      {
+        path: "/room-bookings/:id",
+        element: <BookingItemSingle></BookingItemSingle>,
+        loader: ({params}) => fetch(`https://jnoyon-ph-a11-server.vercel.app/room-bookings/${params.id}`)
       },
       {
         path: "/my-bookings",

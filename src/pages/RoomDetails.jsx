@@ -30,7 +30,7 @@ export default function RoomDetails() {
         const email = event.target.email.value;
         const date = startDate.toISOString().split('T')[0];
    
-       const bookedRoom =  {_id, room_name, photo, price, name, email, date}
+       const bookedRoom =  { room_name, photo, price, name, email, date, rating}
        fetch("https://jnoyon-ph-a11-server.vercel.app/room-bookings", {
         method: "POST",
         headers: {
