@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet'
 import PricingTable from '../components/PricingTable'
 import FeaturedRooms from '../components/FeaturedRooms'
 import Promotion from '../components/Promotion'
+import ReviewsCarousel from '../components/ReviewsCarousel'
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
         
         <Teams></Teams>
         <PricingTable></PricingTable>
+
+        <ReviewsCarousel></ReviewsCarousel>
     </div>
   )
 }

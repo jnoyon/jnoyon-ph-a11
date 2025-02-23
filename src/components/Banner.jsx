@@ -18,7 +18,7 @@ export default function Banner() {
             </div>
           </div>
           <img
-            src="https://tp.jihadur.com/wp-content/uploads/2025/01/slider-2.jpg"
+            src="https://i.ibb.co.com/Nd0cWzCS/room-min.jpg"
             className="w-full"
           />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -44,7 +44,7 @@ export default function Banner() {
             </div>
           </div>
           <img
-            src="https://tp.jihadur.com/wp-content/uploads/2025/01/slider1.jpg"
+            src="https://i.ibb.co.com/Nd0cWzCS/room-min.jpg"
             className="w-full"
           />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">

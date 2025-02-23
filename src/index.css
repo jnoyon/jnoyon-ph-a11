@@ -36,3 +36,9 @@ body {
 .active {
     color: rgb(28, 50, 248);
 }
+.carousel img {
+    width: inherit !important;
+}
+.carousel .slide img {
+    width: inherit !important;
+}

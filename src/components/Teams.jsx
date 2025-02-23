@@ -22,7 +22,7 @@ export default function Teams() {
                 </div>
             </div>
             <div className="md:w-1/4 bg-white shadow-md rounded-md flex flex-col items-center py-5">
-                <img src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png" alt="User" className='rounded-full h-32 w-32 mb-2' />
+                <img src="https://i.ibb.co.com/D0L4hKj/user.png" alt="User" className='rounded-full h-32 w-32 mb-2' />
                 <h2 className='font-bold'> Abir Uddin </h2>
                 <span className='text-sm text-gray-600'> Manager, Stock Room </span>
                 <div className="mt-5 flex gap-1">
@@ -33,7 +33,7 @@ export default function Teams() {
                 </div>
             </div>
             <div className="md:w-1/4 bg-white shadow-md rounded-md flex flex-col items-center py-5">
-                <img src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png" alt="User" className='rounded-full h-32 w-32 mb-2' />
+                <img src="https://i.ibb.co.com/D0L4hKj/user.png" alt="User" className='rounded-full h-32 w-32 mb-2' />
                 <h2 className='font-bold'> Sabbir Rahman </h2>
                 <span className='text-sm text-gray-600'> CTO, Stock Room </span>
                 <div className="mt-5 flex gap-1">
@@ -44,7 +44,7 @@ export default function Teams() {
                 </div>
             </div>
             <div className="md:w-1/4 bg-white shadow-md rounded-md flex flex-col items-center py-5">
-                <img src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png" alt="User" className='rounded-full h-32 w-32 mb-2' />
+                <img src="https://i.ibb.co.com/D0L4hKj/user.png" alt="User" className='rounded-full h-32 w-32 mb-2' />
                 <h2 className='font-bold'> Arif Hasan </h2>
                 <span className='text-sm text-gray-600'> Support Team, Stock Room </span>
                 <div className="mt-5 flex gap-1">
@@ -56,7 +56,7 @@ export default function Teams() {
             </div>
         </div>
         <div className="text-center mt-5">
-            <Link to='/' className="btn btn-wide btn-primary"> Learn More </Link>
+            <Link to='/login' className="btn btn-wide btn-primary"> Get Started </Link>
         </div>
         
     </div>

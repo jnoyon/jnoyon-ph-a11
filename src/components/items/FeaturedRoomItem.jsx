@@ -1,13 +1,8 @@
-import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import ReactStarsRating from 'react-awesome-stars-rating';
 
 export default function FeaturedRoomItem({room}) {
-  const {_id, photo, room_name, description, price, rating, availability} = room;
+  const {_id, photo, room_name, description, price,  availability} = room;
   
-  const ReactStarsExample = () => {
-    return <ReactStarsRating value={rating} />;
-  };
 
   return (
     <div className='flex flex-col items-center gap-2 rounded-md p-2 border'>
@@ -16,10 +11,7 @@ export default function FeaturedRoomItem({room}) {
         <h1 className='font-bold text-blue-600'> {room_name} </h1>
         <p className='text-sm text-gray-500'>  ${price}/Week  </p>
       </div>
-      
-      <div className="rating flex gap-2 items-center">
-        <p className='bg-yellow-400 px-2 py-0.5 text-sm rounded-md'> {rating} </p> <ReactStarsExample />
-      </div>
+    
       <p  className='text-sm text-gray-700 mb-2'> {description} </p>
         <Link to={`/rooms/${_id}`}  className='button-lg bg-blue-600'> Book Now </Link>
         <p className='text-xs'> {availability? <span> Available </span>: <span> Not Available</span>} </p>
