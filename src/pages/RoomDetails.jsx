@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import AuthContext from '../assets/context/AuthContext';
 import  { useState } from "react";
@@ -6,11 +6,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from 'react-helmet';
 import toast, { Toaster } from 'react-hot-toast';
-import ReactStarsRating from 'react-awesome-stars-rating';
+import { Rating } from 'react-simple-star-rating';
 
 export default function RoomDetails() {
     const room = useLoaderData();
     const {user} = useContext(AuthContext);
+    const [reviews, setReviews] = useState([]);
     const {_id, photo, room_name, description, price, availability, rating} = room;
     const [startDate, setStartDate] = useState(new Date());
     const successful = () => toast.success('Room Booking Successful!');
@@ -23,13 +24,22 @@ export default function RoomDetails() {
         document.getElementById('book_now').showModal();
     }
     }
-    const ReactStarsExample = () => {
-        return <ReactStarsRating value={rating} />;
-      };
     const handleClose = () => {
         document.getElementById('book_now').close();
     }
 
+    useEffect(() => {
+      if (room && room._id) {
+        fetch(`http://jnoyon-ph-a11-server.vercel.app/reviews?roomId=${room._id}`)
+          .then((res) => res.json())
+          .then((data) => {
+            setReviews(data); 
+          })
+          .catch((err) => console.error('Failed to load reviews:', err));
+      }
+  }, [room]);
+  
+  
 
     const handleConfirm = (event) => {
         event.preventDefault();
@@ -69,6 +79,9 @@ export default function RoomDetails() {
 
 
     }
+    const averageRating = reviews.length > 0
+    ? (reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length).toFixed(1)
+    : 0;
   return (
     <div className='container w-11/12 mx-auto py-10'>
         <Helmet>
@@ -80,7 +93,11 @@ export default function RoomDetails() {
             <div className="info md:w-1/2">
                 <h1 className=" text-2xl font-bold md:text-5xl mb-2"> {room_name}  </h1>
                 <div className="rating flex gap-2 items-center mb-5">
-                    <p className='bg-yellow-400 px-2 py-0.5 text-sm rounded-md'> {rating} </p> <ReactStarsExample />
+                  {reviews.length > 0 ? (
+                    <p className="flex items-center gap-2"><b> Rating:</b> <Rating initialValue={averageRating} readonly />  </p>
+                  ) : (
+                    <p>No reviews posted.</p>
+                  )}
                 </div>
                 <p className='text-xl'> {description} </p>
                 <div className="bg-white w-60 mx-auto text-center my-5 rounded-md p-3 shadow-md flex flex-col gap-2">

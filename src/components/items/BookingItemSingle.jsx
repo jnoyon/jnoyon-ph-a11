@@ -262,7 +262,7 @@ export default function BookingItemSingle() {
               <b>Price:</b> {price}/- Hour
             </p>
             {reviews.length > 0 ? (
-                <p className="flex items-center gap-2"><b> Rating:</b> <Rating placeholderRating={averageRating}></Rating>  </p>
+                <p className="flex items-center gap-2"><b> Rating:</b> <Rating placeholderRating={averageRating} readonly></Rating>  </p>
               ) : (
                 <p>No reviews posted.</p>
               )}

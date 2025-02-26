@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthContext from "../assets/context/AuthContext";
 import toast, { Toaster } from 'react-hot-toast';
+import axios from "axios";
 
 export default function Login() {
   const {userSignIn, userSignInWithGoogle} = useContext(AuthContext);
@@ -24,7 +25,11 @@ export default function Login() {
 
     userSignIn(email, password)
     .then(result=> {
-      console.log('error', result)
+      const user = {email: email}
+      axios.post('http://jnoyon-ph-a11-server.vercel.app/jwt', user)
+      .then(data => {
+        console.log(data.data)
+      })
       successful();
     })
     .catch(error => {
