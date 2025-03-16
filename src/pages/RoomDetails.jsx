@@ -30,7 +30,7 @@ export default function RoomDetails() {
 
     useEffect(() => {
       if (room && room._id) {
-        fetch(`http://jnoyon-ph-a11-server.vercel.app/reviews?roomId=${room._id}`)
+        fetch(`https://stock-room.vercel.app/reviews?roomId=${room._id}`)
           .then((res) => res.json())
           .then((data) => {
             setReviews(data); 
@@ -48,7 +48,7 @@ export default function RoomDetails() {
         const date = startDate.toISOString().split('T')[0];
    
        const bookedRoom =  { room_name, photo, price, name, email, date, rating}
-       fetch("https://jnoyon-ph-a11-server.vercel.app/room-bookings", {
+       fetch("https://stock-room.vercel.app/room-bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export default function RoomDetails() {
       })
         .then((res) => res.json())
         .then((data) => {
-            return fetch(`https://jnoyon-ph-a11-server.vercel.app/rooms/${_id}`, {
+            return fetch(`https://stock-room.vercel.app/rooms/${_id}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",

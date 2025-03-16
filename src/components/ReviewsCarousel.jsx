@@ -7,7 +7,7 @@ export default function ReviewsCarousel() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://jnoyon-ph-a11-server.vercel.app/reviews")
+    fetch("https://stock-room.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         const sortedReviews = data

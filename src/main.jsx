@@ -35,12 +35,12 @@ const router = createBrowserRouter([
       {
         path: "/rooms/:id",
         element: <RoomDetails></RoomDetails>,
-        loader: ({params}) => fetch(`https://jnoyon-ph-a11-server.vercel.app/rooms/${params.id}`)
+        loader: ({params}) => fetch(`https://stock-room.vercel.app/rooms/${params.id}`)
       },
       {
         path: "/room-bookings/:id",
         element: <BookingItemSingle></BookingItemSingle>,
-        loader: ({params}) => fetch(`https://jnoyon-ph-a11-server.vercel.app/room-bookings/${params.id}`)
+        loader: ({params}) => fetch(`https://stock-room.vercel.app/room-bookings/${params.id}`)
       },
       {
         path: "/my-bookings",

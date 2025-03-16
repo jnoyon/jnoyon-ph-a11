@@ -7,7 +7,7 @@ export default function FeaturedRooms() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://jnoyon-ph-a11-server.vercel.app/rooms")
+    fetch("https://stock-room.vercel.app/rooms")
       .then((res) => res.json())
       .then((data) => {
         const sortedRooms = data.sort((a, b) => b.rating - a.rating);

@@ -21,7 +21,7 @@ export default function BookingItemSingle() {
 
   useEffect(() => {
     if (room?._id) {
-      fetch(`http://jnoyon-ph-a11-server.vercel.app/reviews?roomId=${room._id}`)
+      fetch(`https://stock-room.vercel.app/reviews?roomId=${room._id}`)
         .then((res) => res.json())
         .then((data) => {
           const filteredReviews = data.filter((review) => review.roomId === room._id);
@@ -44,7 +44,7 @@ export default function BookingItemSingle() {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://jnoyon-ph-a11-server.vercel.app/room-bookings/${_id}`, {
+        fetch(`https://stock-room.vercel.app/room-bookings/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -78,7 +78,7 @@ export default function BookingItemSingle() {
     const newDate = e.target.datechange.value;
     if (newDate !== bookdate) {
       const formattedDate = new Date(newDate).toISOString().split("T")[0];
-      fetch(`http://jnoyon-ph-a11-server.vercel.app/room-bookings/${_id}`, {
+      fetch(`https://stock-room.vercel.app/room-bookings/${_id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -155,7 +155,7 @@ export default function BookingItemSingle() {
       date: new Date().toISOString(),
     };
 
-    fetch('http://jnoyon-ph-a11-server.vercel.app/reviews', {
+    fetch('https://stock-room.vercel.app/reviews', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newReview),

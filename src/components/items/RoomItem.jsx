@@ -8,7 +8,7 @@ export default function RoomItem({ room }) {
 
     useEffect(() => {
       if (room && room._id) {
-          fetch(`http://jnoyon-ph-a11-server.vercel.app/reviews?roomId=${room._id}`)
+          fetch(`https://stock-room.vercel.app/reviews?roomId=${room._id}`)
               .then((res) => res.json())
               .then((data) => {
                   setReviews(data);

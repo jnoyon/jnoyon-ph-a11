@@ -7,7 +7,7 @@ export default function MyBookings() {
   
 
   useEffect(() => {
-    fetch("https://jnoyon-ph-a11-server.vercel.app/room-bookings")
+    fetch("https://stock-room.vercel.app/room-bookings")
       .then((res) => res.json())
       .then((data) => {
         setRooms(data);

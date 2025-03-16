@@ -26,7 +26,7 @@ export default function Login() {
     userSignIn(email, password)
     .then(result=> {
       const user = {email: email}
-      axios.post('http://jnoyon-ph-a11-server.vercel.app/jwt', user)
+      axios.post('https://stock-room.vercel.app/jwt', user)
       .then(data => {
         console.log(data.data)
       })
@@ -62,7 +62,7 @@ export default function Login() {
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
             <p className="py-6">
-            elcome to Hotel Booking! We're excited to have you join our
+            Welcome to Hotel Booking! We're excited to have you join our
               community. By creating an account, you’ll unlock exclusive deals
               and offers, making it easier than ever to find and book your dream
               stays. With a registered account, you can manage your bookings
